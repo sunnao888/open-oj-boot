@@ -60,4 +60,8 @@ public interface TagService {
      */
     PageResult<TagDO> getTagPage(TagPageReqVO pageReqVO);
 
+    List<TagDO> getTagListByQuestionId(Long questionId);
+
+    List<TagDO> getTagListAll();
+
 }

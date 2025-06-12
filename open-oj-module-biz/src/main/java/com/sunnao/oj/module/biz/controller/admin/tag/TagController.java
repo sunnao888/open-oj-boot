@@ -1,6 +1,7 @@
 package com.sunnao.oj.module.biz.controller.admin.tag;
 
 import com.sunnao.oj.framework.apilog.core.annotation.ApiAccessLog;
+import com.sunnao.oj.framework.common.enums.CommonStatusEnum;
 import com.sunnao.oj.framework.common.pojo.CommonResult;
 import com.sunnao.oj.framework.common.pojo.PageParam;
 import com.sunnao.oj.framework.common.pojo.PageResult;
@@ -97,6 +98,27 @@ public class TagController {
         // 导出 Excel
         ExcelUtils.write(response, "标签.xls", "数据", TagRespVO.class,
                         BeanUtils.toBean(list, TagRespVO.class));
+    }
+
+    /**
+     * 根据问题id查询标签列表
+     */
+    @GetMapping("/get-list-by-question-id")
+    @Operation(summary = "根据问题id查询标签列表")
+    @Parameter(name = "questionId", description = "问题id", required = true, example = "1024")
+    @PreAuthorize("@ss.hasPermission('biz:tag:query')")
+    public CommonResult<List<TagRespVO>> getTagListByQuestionId(@RequestParam("questionId") Long questionId) {
+        return success(BeanUtils.toBean(tagService.getTagListByQuestionId(questionId), TagRespVO.class));
+    }
+
+    /**
+     * 获取全部标签列表
+     */
+    @GetMapping("/get-list-all")
+    @Operation(summary = "获取全部标签列表")
+    @PreAuthorize("@ss.hasPermission('biz:tag:list')")
+    public CommonResult<List<TagRespVO>> getTagListAll() {
+        return success(BeanUtils.toBean(tagService.getTagListAll(), TagRespVO.class));
     }
 
 }

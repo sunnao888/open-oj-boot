@@ -4,6 +4,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
+import java.util.List;
+
 @Schema(description = "管理后台 - 题目新增/修改 Request VO")
 @Data
 public class QuestionSaveReqVO {
@@ -28,5 +30,8 @@ public class QuestionSaveReqVO {
 
     @Schema(description = "判题配置(json对象)")
     private String judgeConfig;
+
+    @Schema(description = "标签列表")
+    private List<Long> tagIds;
 
 }

@@ -4,7 +4,11 @@ import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.sunnao.oj.framework.mybatis.core.dataobject.BaseDO;
+import com.sunnao.oj.module.biz.dal.dataobject.tag.TagDO;
 import lombok.*;
+
+import javax.swing.text.html.HTML;
+import java.util.List;
 
 /**
  * 题目 DO
@@ -62,5 +66,10 @@ public class QuestionDO extends BaseDO {
      * 收藏数
      */
     private Integer favourNum;
+
+    /**
+     * 标签列表
+     */
+    private List<TagDO> tagList;
 
 }

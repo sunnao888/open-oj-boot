@@ -22,6 +22,13 @@ public interface LinkQuestionTagService {
     Long createLinkQuestionTag(@Valid LinkQuestionTagSaveReqVO createReqVO);
 
     /**
+     * 批量创建题目标签关联
+     *
+     * @param linkQuestionTagDOS 创建信息
+     */
+    Boolean createBatchLinkQuestionTag(List<LinkQuestionTagSaveReqVO> linkQuestionTagDOS);
+
+    /**
      * 更新题目标签关联
      *
      * @param updateReqVO 更新信息
@@ -50,4 +57,5 @@ public interface LinkQuestionTagService {
      */
     LinkQuestionTagDO getLinkQuestionTag(Long id);
 
+    List<LinkQuestionTagDO> getLinkQuestionTagListByQuestionId(Long id);
 }

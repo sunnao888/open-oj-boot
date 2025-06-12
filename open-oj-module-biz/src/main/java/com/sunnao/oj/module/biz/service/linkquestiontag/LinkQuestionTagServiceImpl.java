@@ -1,6 +1,7 @@
 package com.sunnao.oj.module.biz.service.linkquestiontag;
 
 import cn.hutool.core.collection.CollUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.sunnao.oj.framework.common.util.object.BeanUtils;
 import com.sunnao.oj.module.biz.controller.admin.linkquestiontag.vo.LinkQuestionTagSaveReqVO;
 import com.sunnao.oj.module.biz.dal.dataobject.linkquestiontag.LinkQuestionTagDO;
@@ -33,6 +34,11 @@ public class LinkQuestionTagServiceImpl implements LinkQuestionTagService {
         linkQuestionTagMapper.insert(linkQuestionTag);
         // 返回
         return linkQuestionTag.getQuestionId();
+    }
+
+    @Override
+    public Boolean createBatchLinkQuestionTag(List<LinkQuestionTagSaveReqVO> linkQuestionTagDOS) {
+        return linkQuestionTagMapper.insertBatch(BeanUtils.toBean(linkQuestionTagDOS, LinkQuestionTagDO.class));
     }
 
     @Override
@@ -78,4 +84,10 @@ public class LinkQuestionTagServiceImpl implements LinkQuestionTagService {
         return linkQuestionTagMapper.selectById(id);
     }
 
+    @Override
+    public List<LinkQuestionTagDO> getLinkQuestionTagListByQuestionId(Long id) {
+        LambdaQueryWrapper<LinkQuestionTagDO> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(LinkQuestionTagDO::getQuestionId, id);
+        return linkQuestionTagMapper.selectList(lambdaQueryWrapper);
+    }
 }

@@ -3,8 +3,10 @@ package com.sunnao.oj.module.biz.service.tag;
 import cn.hutool.core.collection.CollUtil;
 import com.sunnao.oj.framework.common.pojo.PageResult;
 import com.sunnao.oj.framework.common.util.object.BeanUtils;
+import com.sunnao.oj.framework.mybatis.core.query.MPJLambdaWrapperX;
 import com.sunnao.oj.module.biz.controller.admin.tag.vo.TagPageReqVO;
 import com.sunnao.oj.module.biz.controller.admin.tag.vo.TagSaveReqVO;
+import com.sunnao.oj.module.biz.dal.dataobject.linkquestiontag.LinkQuestionTagDO;
 import com.sunnao.oj.module.biz.dal.dataobject.tag.TagDO;
 import com.sunnao.oj.module.biz.dal.mysql.tag.TagMapper;
 import jakarta.annotation.Resource;
@@ -85,4 +87,17 @@ public class TagServiceImpl implements TagService {
         return tagMapper.selectPage(pageReqVO);
     }
 
+    @Override
+    public List<TagDO> getTagListByQuestionId(Long questionId) {
+        MPJLambdaWrapperX<TagDO> lambdaQueryWrapper = new MPJLambdaWrapperX<>();
+        lambdaQueryWrapper.selectAll(TagDO.class)
+                        .leftJoin(LinkQuestionTagDO.class, LinkQuestionTagDO::getTagId, TagDO::getId)
+                        .eq(LinkQuestionTagDO::getQuestionId, questionId);
+        return tagMapper.selectJoinList(TagDO.class, lambdaQueryWrapper);
+    }
+
+    @Override
+    public List<TagDO> getTagListAll() {
+        return tagMapper.selectList();
+    }
 }
