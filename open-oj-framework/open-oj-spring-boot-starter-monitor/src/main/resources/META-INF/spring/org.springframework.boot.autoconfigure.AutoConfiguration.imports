@@ -1,0 +1,2 @@
+com.sunnao.oj.framework.tracer.config.OpenOjTracerAutoConfiguration
+com.sunnao.oj.framework.tracer.config.OpenOjMetricsAutoConfiguration

@@ -1,0 +1,6 @@
+com.sunnao.oj.framework.apilog.config.OpenOjApiLogAutoConfiguration
+com.sunnao.oj.framework.jackson.config.OpenOjJacksonAutoConfiguration
+com.sunnao.oj.framework.swagger.config.OpenOjSwaggerAutoConfiguration
+com.sunnao.oj.framework.web.config.OpenOjWebAutoConfiguration
+com.sunnao.oj.framework.xss.config.OpenOjXssAutoConfiguration
+com.sunnao.oj.framework.banner.config.OpenOjBannerAutoConfiguration

@@ -1,0 +1,4 @@
+com.sunnao.oj.framework.idempotent.config.OpenOjIdempotentConfiguration
+com.sunnao.oj.framework.lock4j.config.OpenOjLock4jConfiguration
+com.sunnao.oj.framework.ratelimiter.config.OpenOjRateLimiterConfiguration
+com.sunnao.oj.framework.signature.config.OpenOjApiSignatureAutoConfiguration

@@ -1,0 +1,2 @@
+com.sunnao.oj.framework.quartz.config.OpenOjQuartzAutoConfiguration
+com.sunnao.oj.framework.quartz.config.OpenOjAsyncAutoConfiguration

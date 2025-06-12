@@ -1,0 +1,3 @@
+com.sunnao.oj.framework.datasource.config.OpenOjDataSourceAutoConfiguration
+com.sunnao.oj.framework.mybatis.config.OpenOjMybatisAutoConfiguration
+com.sunnao.oj.framework.translate.config.OpenOjTranslateAutoConfiguration

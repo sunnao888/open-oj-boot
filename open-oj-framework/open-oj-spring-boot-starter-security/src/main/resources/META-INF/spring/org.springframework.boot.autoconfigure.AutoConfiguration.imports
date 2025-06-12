@@ -1,0 +1,3 @@
+com.sunnao.oj.framework.security.config.OpenOjSecurityAutoConfiguration
+com.sunnao.oj.framework.security.config.OpenOjWebSecurityConfigurerAdapter
+com.sunnao.oj.framework.operatelog.config.OpenOjOperateLogConfiguration

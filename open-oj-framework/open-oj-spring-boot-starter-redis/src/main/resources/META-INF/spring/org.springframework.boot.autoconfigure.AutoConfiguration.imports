@@ -1,0 +1,2 @@
+com.sunnao.oj.framework.redis.config.OpenOjRedisAutoConfiguration
+com.sunnao.oj.framework.redis.config.OpenOjCacheAutoConfiguration
